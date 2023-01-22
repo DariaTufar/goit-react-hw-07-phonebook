@@ -1,17 +1,16 @@
 import {useSelector, useDispatch}  from   'react-redux';
 import { Formik, Form, ErrorMessage } from 'formik';
 import * as yup from 'yup';
-
+import { nanoid } from 'nanoid';
 
 import { Box } from '../Box';
 import { InputText, InputTitle, ErrorText, ButtonForm } from './ContactForm.styled';
-import { getContacts } from 'redux/selectors';
+import { selectContacts } from 'redux/selectors';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
-import { addNewContact } from 'redux/contactSlice';
-import { nanoid } from 'nanoid';
+import { addContact } from 'redux/operations';
+
  
-// console.log("hello")
 
 const initialValues = {
     name: '',
@@ -33,7 +32,7 @@ export const ContactForm = () => {
        
   const dispatch = useDispatch();
 
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
  
   const handleSubmit = (values, { resetForm }) => {
     const newContact = {
@@ -45,7 +44,7 @@ export const ContactForm = () => {
       return toast.error(`${newContact.name} is already in contacts`);
     }
 
-    dispatch(addNewContact(newContact));
+    dispatch(addContact(newContact));
 
     resetForm();
   };

@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 export const ContactItem = styled.div`
-width : 500px;
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: space-between;
+  width: 500px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   font-size: ${p => p.theme.fontSizes.m};
 
   min-width: ${p => p.theme.sizes.xxxl};
@@ -14,14 +14,19 @@ justify-content: space-between;
   border-radius: ${p => p.theme.radii.sm};
   margin-top: ${p => p.theme.sizes.m};
   margin-bottom: ${p => p.theme.sizes.m};
- 
+
   border: ${p => p.theme.borders.accent};
 `;
 
+export const ContactName = styled.p`
+  display: flex;
+  align-items: center;
+`;
+
 export const Icon = styled.div`
- display: flex;
- align-items: center;
- 
+  display: flex;
+  align-items: center;
+  align-items: center;
 `;
 
 export const ContactNumber = styled.span`
@@ -29,7 +34,6 @@ export const ContactNumber = styled.span`
   font-weight: bold;
   margin-left: ${p => p.theme.sizes.m};
 `;
-
 
 export const ButtonDelete = styled.button`
   margin-right: ${p => p.theme.sizes.xl};
@@ -46,5 +50,3 @@ export const ButtonDelete = styled.button`
   font-size: ${p => p.theme.fontSizes.m};
   cursor: pointer;
 `;
-
- 
